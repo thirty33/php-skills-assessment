@@ -44,7 +44,7 @@ Email: `<your email>`<br/>
 ### Cloning the repository
 1. Create a bare clone of the repository. (This is temporary and will be removed so just do it wherever.)
     ```bash
-    git clone --bare https://github.com/FmTod/skill-assessment-quotes.git
+    git clone --bare https://github.com/FmTod2/skill-assessment-quotes.git
     ```
 
 2. Create a new repository on GitHub.
