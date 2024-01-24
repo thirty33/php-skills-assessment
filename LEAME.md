@@ -8,26 +8,24 @@ El desafío contendrá algunas características fundamentales que la mayoría de
 ### Importante
 * Crear el frontend junto al backend en el mismo projecto o applicacion
 
-La API a la que queremos que te conectes es https://quotes.rest/
+La API a la que queremos que te conectes es [https://dummyjson.com/docs/quotes](https://dummyjson.com/docs/quotes)
 
 ### La aplicación debe tener las siguientes características:
-* Autenticación de usuario y página de actualización de perfil
-* Una página que muestre 5 citas aleatorias
+1. Autenticación de usuario y página de actualización de perfil
+2. Una página que muestre 5 citas aleatorias
     * Debe haber un botón para actualizar las citas
     * Debe haber un botón junto a cada cita para guardarla en tus favoritos
-* Una página que muestre tus favoritos guardados
-    * Debe haber un botón para eliminar una cita de tus favoritos
-* Implementar límites de velocidad para las solicitudes de la API a `https://quotes.rest/` para evitar el abuso.
-    * La API debe estar limitada a 30 solicitudes por minuto.
-* Autenticación de administrador por separado para moderar las citas de usuario guardadas y prohibir usuarios
-* El frontend debe hacerse con Vue.js y opcionalmente Inertia.js
+3. Una página que muestre tus favoritos guardados. Debe haber un botón para eliminar una cita de tus favoritos
+4. Implementar límites de velocidad para las solicitudes de la API a `https://dummyjson.com/quotes` para evitar el abuso. La API debe estar limitada a 30 solicitudes por minuto.
+5. Autenticación de administrador por separado para moderar las citas de usuario guardadas y prohibir usuarios
+6. El frontend debe hacerse con Vue.js y opcionalmente Inertia.js
     * TypeScript debe usarse para cualquier funcionalidad del frontend
     * La interfaz de usuario debe ser receptiva
-* Debe estar disponible una ruta de API para recuperar un número especificado de citas aleatorias de Kayne West
-* Debe estar disponible una ruta de API para recuperar tus citas favoritas
-* Debe estar disponible una ruta de API para eliminar una cita de tus favoritos
-* Todas las rutas de la API deben estar aseguradas con un token de usuario
-* Todas las características anteriores deben probarse con pruebas de características
+7. Debe estar disponible una ruta de API para recuperar un número especificado de citas aleatorias de Kayne West
+8. Debe estar disponible una ruta de API para recuperar tus citas favoritas
+9. Debe estar disponible una ruta de API para eliminar una cita de tus favoritos
+10. Todas las rutas de la API deben estar aseguradas con un token de usuario
+11. Todas las características anteriores deben probarse con pruebas de características
 
 #### Extra Credit
 * Usar Composition API y setup script en componentes de Vue
@@ -42,7 +40,7 @@ Correo electrónico: `<tu correo electrónico>`<br/>
 ### Clonar el repositorio
 1. Crea un clon sin contenido del repositorio. (Esto es temporal y se eliminará, así que hazlo donde sea.)
     ```bash
-    git clone --bare https://github.com/FmTod/skill-assessment-quotes.git
+    git clone --bare https://github.com/FmTod2/skill-assessment.git
     ```
 
 2. Crea un nuevo repositorio en GitHub.
