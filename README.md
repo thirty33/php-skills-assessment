@@ -3,16 +3,39 @@
 <p align="center"><a href="./LEAME.md">Spanish / Español</a></p>
 
 # Quotes App
-#### Skill Assessment
+### Skill Assessment
 
 The challenge will contain a few core features most applications have. That includes connecting to an API, basic MVC, exposing an API, and finally tests.
 
-### Important
-Create the frontend in the same project/repo as the backend
-
 The API we want you to connect to is [https://dummyjson.com/docs/quotes](https://dummyjson.com/docs/quotes)
 
-### The application must have the following features:
+### Attention Programmers:
+
+Please read the following instructions carefully before beginning the skill test:
+
+1. **Repository**:
+The project must be contained in the same repository adn application, both frontend and backend.
+
+2. **Complete All 11 Tasks**: 
+Each task is crucial and must be fully completed. Partial completion will not be considered.
+
+3. **Attention to Detail**:
+Pay close attention to the specifications and requirements for each task. Accuracy and adherence to instructions are key.
+
+4. **Quality of Work**: 
+We are looking for clean, efficient, and well-documented code. Quality is as important as completion.
+
+5. **Bonus Features**: 
+Implementing additional features or enhancements not listed in the tasks will earn you extra points. Creativity and innovation are highly valued.
+
+6. **Time Management**: 
+We do not expect all tasks to be completed in one sitting.
+
+7. **Submission**: 
+Once you have completed all tasks, submit your work as instructed.
+
+
+## The application must have the following features:
 1. User authentication and profile update page
 2. A page that shows 5 random quotes
     1. There should be a button to refresh the quotes
