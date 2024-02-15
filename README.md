@@ -55,6 +55,7 @@ Once you have completed all tasks, submit your work as instructed.
 #### Extra Credit
 * Use composition API and setup script for Vue components
 * Use inertia to connect backend and frontend
+* Provide a separate file with documentation
 
 ## Developer
 Name: `<your name>` <br/>
