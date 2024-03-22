@@ -53,7 +53,7 @@ Once you have completed all tasks, submit your work as instructed.
 3. Separate admin authentication for moderating saved user quotes and banning users
 4. Frontend should be done with Vue.js and optionally Inertia.js
     1. Typescript should be used for any frontend functionality
-    1. UI should be responsive
+    2. UI should be responsive
 5. All API route should be secured with an user token
 6. Above features are to be tested with Feature tests
 

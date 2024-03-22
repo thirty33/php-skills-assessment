@@ -14,39 +14,41 @@ Por favor, lea las siguientes instrucciones cuidadosamente antes de comenzar la 
 
 1. Repositorio: El proyecto debe estar contenido en el mismo repositorio y aplicación, tanto en el frontend como en el backend.
 
-Completa las 11 tareas: Cada tarea es crucial y debe ser completada en su totalidad. No se considerará una finalización parcial.
+2. Completa las 11 tareas: Cada tarea es crucial y debe ser completada en su totalidad. No se considerará una finalización parcial.
 
-Atención al detalle: Preste mucha atención a las especificaciones y requisitos de cada tarea. La precisión y el cumplimiento de las instrucciones son clave.
+3. Atención al detalle: Preste mucha atención a las especificaciones y requisitos de cada tarea. La precisión y el cumplimiento de las instrucciones son clave.
 
-Calidad del trabajo: Estamos buscando un código limpio, eficiente y bien documentado. La calidad es tan importante como la finalización.
+4. Calidad del trabajo: Estamos buscando un código limpio, eficiente y bien documentado. La calidad es tan importante como la finalización.
 
-Características adicionales: La implementación de características o mejoras adicionales no enumeradas en las tareas te hará ganar puntos extra. La creatividad y la innovación son muy valoradas.
+5. Características adicionales: La implementación de características o mejoras adicionales no enumeradas en las tareas te hará ganar puntos extra. La creatividad y la innovación son muy valoradas.
 
-Gestión del tiempo: No esperamos que todas las tareas se completen en una sola sesión.
+6. Gestión del tiempo: No esperamos que todas las tareas se completen en una sola sesión.
 
-Presentación: Una vez que hayas completado todas las tareas, presenta tu trabajo como se indica.
+7. Presentación: Una vez que hayas completado todas las tareas, presenta tu trabajo como se indica.
 
 ### La aplicación debe tener las siguientes características
 
 1. Autenticación de usuario y página de actualización de perfil
-2. Una página que muestre 5 citas aleatorias
-    * Debe haber un botón para actualizar las citas
-    * Debe haber un botón junto a cada cita para guardarla en tus favoritos
-3. Una página que muestre tus favoritos guardados. Debe haber un botón para eliminar una cita de tus favoritos
-4. Implementar límites de velocidad para las solicitudes de la API a `https://dummyjson.com/quotes` para evitar el abuso. La API debe estar limitada a 30 solicitudes por minuto.
-5. Autenticación de administrador por separado para moderar las citas de usuario guardadas y prohibir usuarios
-6. El frontend debe hacerse con Vue.js y opcionalmente Inertia.js
-    * TypeScript debe usarse para cualquier funcionalidad del frontend
-    * La interfaz de usuario debe ser receptiva
-7. Debe estar disponible una ruta de API para recuperar un número especificado de citas aleatorias de Kayne West
-8. Debe estar disponible una ruta de API para recuperar tus citas favoritas
-9. Debe estar disponible una ruta de API para eliminar una cita de tus favoritos
-10. Todas las rutas de la API deben estar aseguradas con un token de usuario
-11. Todas las características anteriores deben probarse con pruebas de características
+2. Un paquete de compositor separado ubicado en ./packages/quotes que maneja toda la funcionalidad relacionada con las citas:
+    1. Una fachada que obtiene un número de citas aleatorias de la API
+    2. Implementar la limitación de la tasa para las solicitudes de API para prevenir el abuso. La API debe estar limitada a 30 solicitudes por minuto por defecto, pero debe ser personalizable desde la aplicación principal
+    3. Se debe registrar una ruta de API en el paquete para obtener un número especificado de citas aleatorias
+    4. Se debe registrar una ruta de API en el paquete para obtener tus citas favoritas
+    5. Se debe registrar una ruta de API en el paquete para eliminar una cita de tus favoritos
+    6. Todas las rutas de la API deben ser personalizables desde la aplicación principal (prefijo, middleware, etc.)
+    7. Las características anteriores deben ser probadas con pruebas de características dentro del paquete
+3. Autenticación de administrador separada para moderar las citas guardadas de los usuarios y prohibir usuarios
+4. El frontend debe hacerse con Vue.js y opcionalmente con Inertia.js
+    1. Typescript debe ser utilizado para cualquier funcionalidad de frontend
+    2. La interfaz de usuario debe ser responsive
+5. Todas las rutas de la API deben estar aseguradas con un token de usuario
+6. Las características anteriores deben ser probadas con pruebas de características
 
 #### Extra Credit
 
-* Usar Composition API y setup script en componentes de Vue
+- Utiliza la API de composición y el script de configuración para los componentes de Vue
+- Utiliza la inercia para conectar el backend y el frontend
+- Proporciona un archivo separado con documentación
 
 ## Desarrollador
 
