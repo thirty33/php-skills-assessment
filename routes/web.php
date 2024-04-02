@@ -29,7 +29,17 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\PageController::class, 'dashboard'])
+        ->name('dashboard');
+
+    Route::resource('quotes', \App\Http\Controllers\QuoteController::class);
+
+    Route::post('quotes/add-favorite', [\App\Http\Controllers\QuoteController::class, 'favorite'])
+        ->name('quotes.favorite');
+
+    Route::get('quotes/get-favorites/{user}', [\App\Http\Controllers\QuoteController::class, 'getFavoritesByUser'])
+        ->name('quotes.favorites');
+
+    Route::delete('quotes/delete-favorite/{quote}', [\App\Http\Controllers\QuoteController::class, 'deleleFavorite'])
+        ->name('quotes.favorites.delete');
 });

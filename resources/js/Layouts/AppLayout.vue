@@ -51,6 +51,12 @@ const logout = () => {
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
+                                <NavLink :href="route('quotes.index', { amount: 3})" :active="route().current('quotes.index')">
+                                    Quotes
+                                </NavLink>
+                                <NavLink :href="route('quotes.favorites', $page.props.auth.user.id)" :active="route().current('quotes.favorites')">
+                                    Favorite quotes
+                                </NavLink>
                             </div>
                         </div>
 
@@ -220,6 +226,14 @@ const logout = () => {
 
                             <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')" :active="route().current('api-tokens.index')">
                                 API Tokens
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink :href="route('quotes.index', { amount: 3})" :active="route().current('quotes.index')">
+                                Quotes
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink :href="route('quotes.favorites', $page.props.auth.user.id)" :active="route().current('quotes.favorites')">
+                                Favorite quotes
                             </ResponsiveNavLink>
 
                             <!-- Authentication -->
