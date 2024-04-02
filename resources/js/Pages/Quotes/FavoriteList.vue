@@ -9,7 +9,6 @@ defineProps({ quotes: Array });
 const deleteFavorite = (id) => {
   router.delete(route("quotes.favorites.delete", id), { preserveState: true });
 };
-
 </script>
 
 <template>
@@ -37,13 +36,9 @@ const deleteFavorite = (id) => {
                     <p class="text-gray-500">- {{ quote.author }}</p>
                   </td>
                   <td class="px-4 py-2 text-right">
-                    <a
-                      v-if="!quote.favorite"
-                      href=""
-                      @click.prevent="() => deleteFavorite(quote.id)"
-                    >
-                      <span class="hidden sm:inline">Delete favorite</span>
-                    </a>
+                    <PrimaryButton @click.prevent="() => deleteFavorite(quote.id)">
+                      Delete favorite
+                    </PrimaryButton>
                   </td>
                 </tr>
               </table>

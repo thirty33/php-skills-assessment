@@ -17,9 +17,13 @@ const getRandom = () => {
 };
 
 const addFavorite = (id) => {
-  router.post(route("quotes.favorite"), {
-    quote_id: id,
-  });
+  router.post(
+    route("quotes.favorite"),
+    {
+      quote_id: id,
+    },
+    { preserveState: true }
+  );
 };
 </script>
 
@@ -48,10 +52,11 @@ const addFavorite = (id) => {
                     <p class="text-gray-500">- {{ quote.author }}</p>
                   </td>
                   <td class="px-4 py-2 text-right">
-                    <a 
-											v-if="!quote.favorite"
-											href="" 
-											@click.prevent="() => addFavorite(quote.id)">
+                    <a
+                      v-if="!quote.favorite"
+                      href=""
+                      @click.prevent="() => addFavorite(quote.id)"
+                    >
                       <svg
                         class="w-4 h-4 mr-2"
                         fill="none"

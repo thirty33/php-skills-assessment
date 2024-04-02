@@ -1,12 +1,16 @@
 <script setup>
-import { ref } from 'vue';
-import { Head, Link, router } from '@inertiajs/vue3';
+import { ref, computed } from 'vue';
+import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import ApplicationMark from '@/Components/ApplicationMark.vue';
 import Banner from '@/Components/Banner.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+
+const page = usePage()
+
+const status = computed(() => page.props.flash.status)
 
 defineProps({
     title: String,
@@ -296,6 +300,9 @@ const logout = () => {
 
             <!-- Page Content -->
             <main>
+                <div v-if="status" class="bg-blue-500 text-white-sm font-bold p-4">
+                    <p> {{ status }}</p>
+                </div>
                 <slot />
             </main>
         </div>
