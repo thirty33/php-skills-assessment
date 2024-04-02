@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('quote');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

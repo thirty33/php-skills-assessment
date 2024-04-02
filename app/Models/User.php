@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -67,5 +69,15 @@ class User extends Authenticatable
     public function quotes()
     {
         return $this->belongsToMany(Quote::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->roles()->where('role_name', 'admin')->exists();
+    }
+
+    public function isCustomer()
+    {
+        return $this->roles()->where('role_name', 'customer')->exists();
     }
 }

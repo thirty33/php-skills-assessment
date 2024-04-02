@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function dashboard(User $user)
+    public function dashboard(Request $request)
     {
         return Inertia::render('Dashboard', [
-            'user' => $user
+            'user' => $request->user()
         ]); 
     }
 }

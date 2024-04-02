@@ -40,6 +40,10 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'status' => fn () => $request->session()->get('status')
             ],
+            'can' => [
+                'favorites' => fn () => $request->user() ? $request->user()->can('user-favorites') : false,
+                'management_users' => fn () => $request->user() ? $request->user()->can('user-management') : false
+            ]
         ]);
     }
 }
