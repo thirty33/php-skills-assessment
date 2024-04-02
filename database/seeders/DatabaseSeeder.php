@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Quote;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +17,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $admistratorRole = Role::factory()->create([
+            'role_name' => 'admin'
+        ]);
+
+        $customerRole = Role::factory()->create([
+            'role_name' => 'customer'
+        ]);
+
+        $administratorUser = User::factory()->create(['email' => 'administrator@admin.com']);
+        $customerUser = User::factory()->create(['email' => 'customer@customer.com']);
+        
+        $administratorUser->roles()->attach($admistratorRole);
+        $customerUser->roles()->attach($customerRole);
+
+        $favoritesQuotes = Quote::factory(10)->create();
+
+        foreach($favoritesQuotes as $favorite) {
+            $customerUser->quotes()->attach($favorite);
+        }
+
+        $NotFavoritesQuotes = Quote::factory(20)->create();
     }
 }
