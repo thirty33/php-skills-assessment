@@ -65,8 +65,8 @@ Once you have completed all tasks, submit your work as instructed.
 
 ## Developer
 
-Name: `<your name>` <br/>
-Email: `<your email>`<br/>
+Name: `Joel Suarez` <br/>
+Email: `joelsuarez.1101@gmail.com`<br/>
 
 ## Instructions
 
