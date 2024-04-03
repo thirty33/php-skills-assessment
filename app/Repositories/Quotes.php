@@ -26,4 +26,26 @@ class Quotes implements QuotesContract
         return $quotes;
     }
 
+    public function getQuotesFromApi(int $amount)
+    {
+        $url = "https://dummyjson.com/quotes?limit=$amount&skip=0";
+
+        $curl = curl_init($url);
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        $data = json_decode($response, true);
+
+        if ($data === null) {
+            throw new \Exception("Error al decodificar la respuesta JSON: " . curl_error($curl));
+        }
+
+        return $data["quotes"];
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Facades;
 
-// use App\Repositories\RandomQuotesRepository;
 use App\Contracts\QuotesContract;
 use Illuminate\Support\Facades\Facade;
 

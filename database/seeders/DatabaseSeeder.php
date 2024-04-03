@@ -32,12 +32,12 @@ class DatabaseSeeder extends Seeder
         $administratorUser->roles()->attach($admistratorRole);
         $customerUser->roles()->attach($customerRole);
 
-        $favoritesQuotes = Quote::factory(10)->create();
+        // $favoritesQuotes = Quote::factory(10)->create();
 
-        foreach($favoritesQuotes as $favorite) {
-            $customerUser->quotes()->attach($favorite);
-        }
+        // foreach($favoritesQuotes as $favorite) {
+        //     $customerUser->quotes()->attach($favorite);
+        // }
 
-        $NotFavoritesQuotes = Quote::factory(20)->create();
+        // $NotFavoritesQuotes = Quote::factory(20)->create();
     }
 }
