@@ -1,10 +1,11 @@
-<script setup>
+<script lang="ts" setup>
 import { reactive, watch } from "vue";
 import { Link, router } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import { Quote } from '@/Quote';
 
-defineProps({ quotes: Array });
+defineProps<{ quotes: Array<Quote> }>();
 
 const itemsPerRequest = 3;
 
@@ -16,7 +17,7 @@ const getRandom = () => {
   );
 };
 
-const addFavorite = (id) => {
+const addFavorite = (id: number) => {
   router.post(
     route("quotes.favorite"),
     {

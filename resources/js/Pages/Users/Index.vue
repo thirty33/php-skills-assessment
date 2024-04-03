@@ -1,15 +1,16 @@
-<script setup>
+<script lang="ts" setup>
 import { reactive, watch } from "vue";
 import { Link, router } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import { User } from '@/User';
 
-defineProps({ users: Array });
+defineProps<{ users: Array<User> }>();
 
-const disableUser = (id) => {
+const disableUser = (id: number) => {
   router.post(route("users.disable", id), { preserveState: true });
 };
-const enableUser = (id) => {
+const enableUser = (id: number) => {
   router.post(route("users.enable", id), { preserveState: true });
 };
 </script>
