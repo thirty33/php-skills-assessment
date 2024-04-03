@@ -6,6 +6,8 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 
+use FmTod\Quotes\Contracts\QuotesContract;
+use FmTod\Quotes\Repositories\Quotes;
 class QuotesServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
@@ -24,7 +26,7 @@ class QuotesServiceProvider extends PackageServiceProvider
                 'quote_user_table',
                 'role_user_table',
             ])
-            ->publishesServiceProvider('QuotesServiceProvider')
+            ->publishesServiceProvider('WebQuotesServiceProvider')
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
@@ -37,5 +39,11 @@ class QuotesServiceProvider extends PackageServiceProvider
             });
 
         
+    }
+
+    
+    public function packageRegistered()
+    {
+        $this->app->bind(QuotesContract::class, Quotes::class);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Role;
-use App\Models\Quote;
+use FmTod\Quotes\Models\Quote;
 
 class DatabaseSeeder extends Seeder
 {

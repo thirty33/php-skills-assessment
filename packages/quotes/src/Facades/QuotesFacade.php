@@ -2,10 +2,10 @@
 
 namespace FmTod\Quotes\Facades;
 
-use FmTod\Quotes\Contracts\QuotesContract;
 use Illuminate\Support\Facades\Facade;
+use FmTod\Quotes\Contracts\QuotesContract;
 
-class Quotes extends Facade
+class QuotesFacade extends Facade
 {
     protected static function getFacadeAccessor(): string
     {

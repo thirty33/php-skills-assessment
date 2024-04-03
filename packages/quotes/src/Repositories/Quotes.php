@@ -3,9 +3,8 @@
 namespace FmTod\Quotes\Repositories;
 
 use FmTod\Quotes\Contracts\QuotesContract;
-use App\Models\Quote;
+use FmTod\Quotes\Models\Quote;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class Quotes implements QuotesContract
 {

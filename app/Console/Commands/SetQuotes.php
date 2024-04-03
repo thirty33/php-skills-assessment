@@ -3,8 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use FmTod\Quotes\Facades\Quotes;
-use App\Models\Quote;
+use FmTod\Quotes\Facades\QuotesFacade;
+use FmTod\Quotes\Models\Quote;
+use App\Models\User;
 
 class SetQuotes extends Command
 {
@@ -28,8 +29,8 @@ class SetQuotes extends Command
     public function handle()
     {
         try {
-
-            $quotes = Quotes::getQuotesFromApi(1400);
+            
+            $quotes = QuotesFacade::getQuotesFromApi(1400);
             
             foreach ($quotes as $quoteData) {
 

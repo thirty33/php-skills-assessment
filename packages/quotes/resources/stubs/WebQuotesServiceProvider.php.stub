@@ -9,10 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Access\Response;
 use App\Models\User;
-use FmTod\Quotes\Contracts\QuotesContract;
-use FmTod\Quotes\Repositories\Quotes;
 
-class QuotesServiceProvider extends ServiceProvider
+class WebQuotesServiceProvider extends ServiceProvider
 {
     /**
      * The model to policy mappings for the application.
@@ -28,7 +26,7 @@ class QuotesServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(QuotesContract::class, Quotes::class);
+
     }
 
     /**

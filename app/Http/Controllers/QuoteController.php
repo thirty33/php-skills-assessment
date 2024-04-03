@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Quote;
+use FmTod\Quotes\Models\Quote;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use FmTod\Quotes\Facades\Quotes;
+use \FmTod\Quotes\Facades\QuotesFacade;
 
 class QuoteController extends Controller
 {
@@ -19,7 +19,7 @@ class QuoteController extends Controller
             'amount' => 'required|numeric',
         ]);
 
-        $quotes = Quotes::getRandomQuotes($request->user(), $request->amount);
+        $quotes = QuotesFacade::getRandomQuotes($request->user(), $request->amount);
 
         return Inertia::render('Quotes/Index', [
             'quotes' => $quotes
