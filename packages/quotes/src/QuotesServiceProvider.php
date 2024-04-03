@@ -4,6 +4,7 @@ namespace FmTod\Quotes;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 
 class QuotesServiceProvider extends PackageServiceProvider
 {
@@ -17,6 +18,24 @@ class QuotesServiceProvider extends PackageServiceProvider
         $package
             ->name('quotes')
             ->hasConfigFile()
-            ->hasMigration('create_favorite_quotes_table');
+            ->hasMigrations([
+                'create_quotes_table',
+                'create_roles_table',
+                'quote_user_table',
+                'role_user_table',
+            ])
+            ->publishesServiceProvider('QuotesServiceProvider')
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command
+                    ->publishConfigFile()
+                    // ->publishAssets()
+                    ->publishMigrations()
+                    // ->askToRunMigrations()
+                    ->copyAndRegisterServiceProviderInApp()
+                    // ->askToStarRepoOnGitHub('your-vendor/your-repo-name')
+                ;
+            });
+
+        
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Repositories;
+namespace FmTod\Quotes\Repositories;
 
-use App\Contracts\QuotesContract;
+use FmTod\Quotes\Contracts\QuotesContract;
 use App\Models\Quote;
 use App\Models\User;
 use Illuminate\Http\Request;
-
 
 class Quotes implements QuotesContract
 {

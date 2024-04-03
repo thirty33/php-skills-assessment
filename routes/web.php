@@ -47,8 +47,8 @@ Route::middleware([
         ->middleware('can:user-management');
 });
 
-Route::prefix(config('quote_api.quotes_api_prefix'))
-    ->middleware(config('quote_api.quotes_api_middlewares'))
+Route::prefix(config('quote.quotes_api_prefix'))
+    ->middleware(config('quote.quotes_api_middlewares'))
     ->group(function () {
 
         Route::resource('quotes', \App\Http\Controllers\QuoteController::class)->middleware('can:user-favorites');

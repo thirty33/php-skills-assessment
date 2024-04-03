@@ -6,7 +6,8 @@ use App\Models\Quote;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Facades\Quotes;
+use FmTod\Quotes\Facades\Quotes;
+
 class QuoteController extends Controller
 {
     /**

@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Facades\Quotes;
+use FmTod\Quotes\Facades\Quotes;
 use App\Models\Quote;
 
 class SetQuotes extends Command

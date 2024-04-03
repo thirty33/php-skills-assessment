@@ -18,7 +18,7 @@ console:
   namespace: FmTod\Quotes\Console
 
 model:
-  namespace: FmTod\Quotes\Models
+  namespace: App\Models
 
 provider:
   namespace: FmTod\Quotes

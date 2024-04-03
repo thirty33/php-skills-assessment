@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Contracts;
+namespace FmTod\Quotes\Contracts;
 
 use App\Models\User;
 
