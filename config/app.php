@@ -184,8 +184,8 @@ return [
 
         /*
          * Package Service Providers...
-         */
-
+        */
+        App\Providers\QuotesServiceProvider::class,
         /*
          * Application Service Providers...
          */

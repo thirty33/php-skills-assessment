@@ -48,9 +48,5 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
-
-        RateLimiter::for('default', function (Request $request) {
-            return Limit::perMinute(config('quote_api.quotes_rate_limit', 30))->by($request->user()?->id ?: $request->ip());
-        });
     }
 }

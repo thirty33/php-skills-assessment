@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use App\Contracts\QuotesContract;
+use App\Repositories\Quotes;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Auth\Access\Response;
+use App\Models\User;
+
+class QuotesServiceProvider extends ServiceProvider
+{
+    /**
+     * The model to policy mappings for the application.
+     *
+     * @var array<class-string, class-string>
+     */
+    protected $policies = [
+        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+    ];
+
+    /**
+     * Register services.
+     */
+    public function register(): void
+    {
+        $this->app->bind(QuotesContract::class, Quotes::class);
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot(): void
+    {
+        $this->configureRateLimiting();
+
+        Gate::define('user-management', function (User $user) {
+            return $user->isAdmin()
+                ? Response::allow()
+                : Response::deny('You must be an administrator.');
+        });
+
+        Gate::define('user-favorites', function (User $user) {
+            return $user->isCustomer()
+                ? Response::allow()
+                : Response::deny('You must be a customer.');
+        });
+    }
+
+    /**
+     * Configure the rate limiters for the application.
+     *
+     * @return void
+     */
+    protected function configureRateLimiting()
+    {
+        RateLimiter::for('default', function (Request $request) {
+            return Limit::perMinute(config('quote_api.quotes_rate_limit', 30))->by($request->user()?->id ?: $request->ip());
+        });
+    }
+}
