@@ -57,7 +57,7 @@ class WebQuotesServiceProvider extends ServiceProvider
     protected function configureRateLimiting()
     {
         RateLimiter::for('default', function (Request $request) {
-            return Limit::perMinute(config('quote_api.quotes_rate_limit', 30))->by($request->user()?->id ?: $request->ip());
+            return Limit::perMinute(config('quotes.quotes_rate_limit', 30))->by($request->user()?->id ?: $request->ip());
         });
     }
 }
