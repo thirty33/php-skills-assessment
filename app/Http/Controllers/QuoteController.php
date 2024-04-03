@@ -6,28 +6,19 @@ use App\Models\Quote;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-
+use App\Facades\Quotes;
 class QuoteController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+    */
     public function index(Request $request)
     {
         $request->validate([
             'amount' => 'required|numeric',
         ]);
 
-        $favoriteQuoteIds = $request->user()->quotes()->pluck('quote_id')->toArray() ?? [];
-
-        $quotes = Quote::inRandomOrder()
-            ->limit($request->amount)
-            ->get();
-
-        $quotes = $quotes->map(function ($quote) use ($favoriteQuoteIds) {
-            $quote->favorite = in_array($quote->id, $favoriteQuoteIds);
-            return $quote;
-        });
+        $quotes = Quotes::getRandomQuotes($request->user(), $request->amount);
 
         return Inertia::render('Quotes/Index', [
             'quotes' => $quotes
